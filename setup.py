@@ -18,7 +18,7 @@ classifiers = [
  
 setup(
   name='python_flipkart_scraper',
-  version='1.1.0',
+  version='1.1.1',
   description='Scrap Product Data from Flipkart',
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -32,8 +32,9 @@ setup(
   python_requires=">=3.9, <4",   
   package_dir={'':'src'},
   install_requires=[
-    'progress==1.6',
-    'py-essentials==1.4.12',
+    'beautifulsoup4==4.12.2',
+    'lxml==4.9.3',
+    'requests==2.31.0'
   ],
   project_urls={
     "Bug Reports": "https://github.com/sannjayy/python_flipkart_scraper/issues",
