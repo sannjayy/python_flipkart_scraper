@@ -36,10 +36,12 @@ class ExtractFlipkart:
         
         try:
             price = self.soup.select_one('#container>div>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)>div:nth-child(2)>div>div:nth-child(3)>div:nth-child(1)>div>div:nth-child(1)').text.strip()
-            price = price.replace('₹', '').replace(',', '')
-        except AttributeError:      	
-            price = ''
-        return price
+        except AttributeError:  
+            try:
+                price = self.soup.select_one('#container>div>div:nth-child(3)>div:nth-child(1)>div:nth-child(2)>div:nth-child(2)>div>div:nth-child(4)>div>div>div:nth-child(1)').text.strip()
+            except AttributeError:
+                price = ''
+        return price.replace('₹', '').replace(',', '')
 
     # Function to extract Product Rating
     def get_rating(self):
